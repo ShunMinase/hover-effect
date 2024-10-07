@@ -120,8 +120,16 @@ void main() {
   disp.magFilter = disp.minFilter = THREE.LinearFilter;
 
   if (video) {
+    let frame = 0;
     var animate = function() {
       requestAnimationFrame(animate);
+
+      frame++; // フレーム数をインクリメント
+
+      // フレーム数が２で割り切れなければ描画しない (60fpsを30fpsにする)
+      if (frame % 2 == 0) {
+        return;
+      }
 
       renderer.render(scene, camera);
     };

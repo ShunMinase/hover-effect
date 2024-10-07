@@ -130,7 +130,6 @@ void main() {
       if (frame % 2 == 0) {
         return;
       }
-
       renderer.render(scene, camera);
     };
     animate();
